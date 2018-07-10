@@ -6,19 +6,17 @@
  * code.
  */
 import englishToBrailleLiteralSet from './english-to-braille.js';
-window.onload = function () {
-  document.getElementById('btnConvertEnglishToBraille').addEventListener('click', convert);
-}
+
 const map = new Map(englishToBrailleLiteralSet);
 function convert() {
-
   const inputstring = document.getElementById('sourceLangText').value;
-
   let str = '';
-  for (let i = 0; i < inputstring.length; i++) {
+  for (let i = 0; i < inputstring.length; i ++) {
     str += map.get(inputstring[i]);
   }
   document.getElementById('targetLangText').innerHTML = str;
 }
+document.getElementById('btnConvertEnglishToBraille').addEventListener('click', convert);
+
 
 
