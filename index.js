@@ -7,13 +7,12 @@
  */
 import englishToBrailleLiteralSet from './english-to-braille.js';
 
-const map = new Map(englishToBrailleLiteralSet);
+const emap = new Map(englishToBrailleLiteralSet);
 function convert() {
-  const inputstring = document.getElementById('sourceLangText').value;
-  let str = '';
-  for (let i = 0; i < inputstring.length; i += 1) {
-    str += map.get(inputstring[i]);
-  }
-  document.getElementById('targetLangText').innerHTML = str;
+  document.getElementById('targetLangText').innerHTML = document.getElementById('sourceLangText')
+    .value
+    .split('')
+    .map(x => emap.get(x))
+    .join('');
 }
 document.getElementById('btnConvertEnglishToBraille').addEventListener('click', convert);
